@@ -90,12 +90,8 @@ class StackBrackets{
 				}
 			}
 		}
-	/*int pop_flag=0;
-	if(!stck.isEmpty()){
-		stck.pop();
-		pop_flag=1;
-	}*/
-	if(stck.isEmpty()){
+
+if(stck.isEmpty()){
 
 		if(flag==1){		
 			System.out.println("Expression is matched:\nNo. of valid brackets: "+count);
@@ -108,6 +104,7 @@ class StackBrackets{
 	}else{
 			System.out.println("Expression is not matched:\nMaximum no. of valid brackets: "+count);
 		}
+		
 		
 	
 	

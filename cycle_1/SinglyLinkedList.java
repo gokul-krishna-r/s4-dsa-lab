@@ -105,7 +105,6 @@ class LinkedList{
 	Link n1=first;
 	Link n2=first;
 	int count=0;
-	if(getLength()>=2){
 	while(n1.next!=null){
 		if(count==pos1){
 			break;
@@ -129,43 +128,83 @@ class LinkedList{
 	n1.data=n2.data;
 	n2.data=temp;
 	
-	}else{
-		System.out.println("Not enough elements");
-	}
+	
 	}
 	
 }
 public class SinglyLinkedList{
 	public static void main(String args[]){
 		int pos1=0,pos2=0;
+		int choice=0;
 		Scanner scn=new Scanner(System.in);
 		LinkedList l=new LinkedList();
+		do{
 		
-		System.out.println("Enter number of elements of list:");
-		int n=scn.nextInt();
+			System.out.println("\n------Menu------");
+			System.out.println("1. Insert Element\n2. Delete Last\n3. Calculate Avg\n4. Swap\n5. Display\n6. Exit");
+			System.out.println("Enter Choice: ");
+			choice=scn.nextInt();
+			
+			switch(choice){
+				case 1:
+					System.out.println("Enter element: ");
+					l.insertFirst(scn.nextInt());
+					break;
+				case 2:
+					System.out.println("\nDeleted Last item: "+l.deleteLast().data);
+					break;
+				case 3:
+					System.out.println("The avg of List is: "+l.avg());
+					break;
+				case 4:
+					if(l.getLength()>=2){
+						System.out.println("Enter postions to swap the list:");
+						pos1=scn.nextInt();
+						pos2=scn.nextInt();
+					
+						System.out.println("\nBefore Swapping:");
+						l.displayList(); 
+						l.swapPos(pos1,pos2);
+						System.out.println("After Swapping: ");
+						l.displayList();
+					}else{
+						System.out.println("Not enough Elements");
+					}
+					break;
+				case 5:
+					System.out.println("The List is");
+					l.displayList();
+					break;
+				case 6:
+					break;
+				default:
+					System.out.println("Some Error Occurred");
+					break;
+			
+			}
 		
-		System.out.println("Enter elements :");
-		for(int i=0;i<n;i++){
-			l.insertFirst(scn.nextInt());
-		}
+			//System.out.println("Enter elements :");
+
+			//l.insertFirst(scn.nextInt());
 		
-		System.out.println("List is: ");
-		l.displayList();
+			//System.out.println("List is: ");
+			//l.displayList();
 		
-		System.out.println("The avg of List is: "+l.avg());	
-		System.out.println("\nDeleted Last item: "+l.deleteLast().data);
-		l.displayList();
-		System.out.println("\nThe avg of List is: "+l.avg());
+			//System.out.println("The avg of List is: "+l.avg());	
+			//System.out.println("\nDeleted Last item: "+l.deleteLast().data);
+			//l.displayList();
+			//System.out.println("\nThe avg of List is: "+l.avg());
 		
-		System.out.println("Enter postions to swap the list:");
-		pos1=scn.nextInt();
-		pos2=scn.nextInt();
+			//System.out.println("Enter postions to swap the list:");
+			//pos1=scn.nextInt();
+			//pos2=scn.nextInt();
 		
-		System.out.println("\nBefore Swapping:");
-		l.displayList(); 
-		l.swapPos(pos1,pos2);
-		System.out.println("After Swapping: ");
-		l.displayList();
+			//System.out.println("\nBefore Swapping:");
+			//l.displayList(); 
+			//l.swapPos(pos1,pos2);
+			//System.out.println("After Swapping: ");
+			//l.displayList();
+		}while(choice!=6);
 	}
 	
 
